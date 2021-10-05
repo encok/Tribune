@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,re_path
 
 urlpatterns = [
-    path(r'^admin/', admin.site.urls),
-    url(r'^news/',include('news.urls'))
+    re_path(r'^admin/', admin.site.urls),
+    re_path(r'',include('news.urls'))
 ]
