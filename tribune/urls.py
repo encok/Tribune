@@ -16,10 +16,13 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from django.urls import path,re_path
+from django.contrib.auth import views 
 # from django_registration import registration
 
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
     re_path(r'',include('news.urls')),
     re_path(r'^accounts/', include('registration.backends.simple.urls')),
+    re_path(r'^logout/$', views.LogoutView.as_view(), {"next_page": '/'}),
+    re_path(r'^tinymce/', include('tinymce.urls')),
 ]
